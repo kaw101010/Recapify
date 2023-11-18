@@ -6,8 +6,8 @@ import SearchBar from './Search';
 function HomePage() {
   return (
     <div name="targetSection" className=' h-screen bg-cyan-300 bg-auto '>
-      <div className='flex flex-col justify-center items-center h-screen gap-11'>
-      <h2 className='bg-gradient-to-r from-cyan-950 to-cyan-600 inline-block text-transparent bg-clip-text text-7xl text-center font-semibold mb-8'>
+      <div className='flex flex-col justify-center items-center h-screen gap-3'>
+      <h2 className='bg-gradient-to-r from-cyan-950 to-cyan-600 inline-block text-transparent bg-clip-text text-7xl text-center font-bold mb-8'>
         Simplify your notes from
         <br />
         Pixels to
