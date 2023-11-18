@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 function ThirdPage() {
-    const [detailsIsClicked, setDetailsIsClicked] = useState(false);
+    const [detailsIsClicked, setDetailsIsClicked] = useState(true);
     const [pointersIsClicked, setPointersIsClicked] = useState(false);
     const [briefIsClicked, setBriefIsClicked] = useState(false);
     const [disp, setDisplay] = useState("");
@@ -38,12 +38,12 @@ function briefClicked() {
 }
     //make 3 functions saying details clicked 
     return (
-        <div className=' flex h-screen w-screen bg-indigo-900 bg-auto'>
-            <div className='flex flex-col w-[70%] h-screen bg-cyan-500 gap-10 '>
+        <div className=' flex h-screen w-screen bg-indigo-900 bg-auto border'>
+            <div className='flex flex-col w-[70%] h-screen bg-cyan-300 gap-10 py-5 border border-t-2 border-t-blue-950 '>
                 <div className='flex justify-around'>
-                    <button className={detailsIsClicked?' bg-indigo-900 text-lg text-cyan-400 px-10 font-semibold py-3' : ' bg-cyan-300 text-lg text-cyan-900 px-10 font-semibold py-3'} onClick={e => {detailsClicked()}}>Details</button>
-                    <button className={pointersIsClicked?' bg-indigo-900 text-lg text-cyan-400 px-10 font-semibold py-3' : ' bg-cyan-300 text-lg text-cyan-900 px-10 font-semibold py-3'} onClick={e => {pointersClicked()}}>Pointers</button>
-                    <button className={briefIsClicked?' bg-indigo-900 text-lg text-cyan-400  px-10 font-semibold py-3' : ' bg-cyan-300 text-lg text-cyan-900 px-10 font-semibold py-3'} onClick={e => {briefClicked()}}>Brief</button>
+                    <button className={detailsIsClicked?' bg-indigo-900 text-lg text-cyan-400 px-10 rounded-xl font-semibold py-3' : ' bg-blue-600 text-lg text-white px-10 rounded-xl font-semibold py-3'} onClick={e => {detailsClicked()}}>Details</button>
+                    <button className={pointersIsClicked?' bg-indigo-900 text-lg text-cyan-400 px-10 rounded-xl font-semibold py-3' : ' bg-blue-600 text-lg text-white px-10 rounded-xl font-semibold py-3'} onClick={e => {pointersClicked()}}>Pointers</button>
+                    <button className={briefIsClicked?' bg-indigo-900 text-lg text-cyan-400  px-10 rounded-xl font-semibold py-3' : ' bg-blue-600 text-lg text-white px-10 rounded-xl font-semibold py-3'} onClick={e => {briefClicked()}}>Brief</button>
                 </div>
                 <div className=' overflow-y-scroll ml-10 mr-10 mb-5'>
                     {/* <p>    
