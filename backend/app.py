@@ -4,6 +4,7 @@ from flask_cors import CORS
 from transcripts_test import *
 from detailed import detailed_notes
 from chatbot import chat_response
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -36,7 +37,10 @@ def summary():
 @app.route("/chat", methods=["GET", "POST"])
 def chatbot():
     if request.method == "POST":
-        question = request.json.get("user_q")
+        question = request.get_json()
+        question= json.loads(question['body'])
+        question=question['user_q']
+        print("User question: ",question)
         if "transcript" in global_storage:
             transcript = global_storage['transcript']
             return chat_response(question, transcript)

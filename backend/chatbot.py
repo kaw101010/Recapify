@@ -17,6 +17,7 @@ def chat_response(question, transcript,max_tokens=750):
         # there's a limit of about videos of length 4 mins
 
         chat_answer = response['answers'][0]['text'].strip()
+        print("Chat Answer",chat_answer)
         return chat_answer
 
     except Exception as e:
