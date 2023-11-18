@@ -1,5 +1,6 @@
 // import { useEffect } from "react";
 import React, { useState, useEffect } from 'react';
+import ChatBot from './ChatBot';
 
 function ThirdPage() {
     const [detailsIsClicked, setDetailsIsClicked] = useState(true);
@@ -72,6 +73,9 @@ function briefClicked() {
                 <div className='flex justify-center items-center'>
                 <button className=' mb-14 bg-gradient-to-r from-blue-900 to-blue-600 w-52 px-9 py-3 rounded-xl text-xl font-bold text-indigo-300'>Generate PDF</button>
                 </div>
+            </div>
+            <div className='w-[30%] bg-white'>
+            <ChatBot />
             </div>
         </div>
     )
