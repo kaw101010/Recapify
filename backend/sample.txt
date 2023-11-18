@@ -1,0 +1,1 @@
+Just a sample text for commiting the backend folder. Write the python code for AI model and integration (django) here
