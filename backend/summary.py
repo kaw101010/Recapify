@@ -16,7 +16,7 @@ def generate_summary(transcript, max_tokens=750):
         )
         # there's a limit of about videos of length 4 mins
 
-        summary = response['choices'][0]['text'].strip()
+        summary = response['choices'][0]['text']
         return summary
 
     except Exception as e:
