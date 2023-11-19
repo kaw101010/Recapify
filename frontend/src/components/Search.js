@@ -10,7 +10,7 @@ const SearchBar = () => {
     sessionStorage.clear();
     try {
       
-      const resp = await axios.post("https://recapify-ai.azurewebsites.net/summary", {
+      const resp = await axios.post("http://127.0.0.1:5000//summary", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

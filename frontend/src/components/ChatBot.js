@@ -21,7 +21,7 @@ const ChatBot = () => {
   const handleSubmit = async () => {
     try {
       // Replace 'API_ENDPOINT' with the actual API endpoint
-      const apiEndpoint = 'https://recapify-ai.azurewebsites.net/chat';
+      const apiEndpoint = 'http://127.0.0.1:5000/chat';
       // const response = await fetch(apiEndpoint, {
       //   method: 'POST',
       //   headers: {
