@@ -4,18 +4,6 @@
     Look at Search.js for guidance
 */
 
-// const handleSearch = async () => {
-//     // Redirect to the specified link when the button is clicked
-//     try {
-//         const resp = await axios.post("http://127.0.0.1:5000/chat", {
-//         user_q: question
-//       });
-//       console.log(resp);
-//       // inspect console for all data
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
 import axios from "axios";
 
 import React, { useState, useRef } from 'react';
@@ -33,7 +21,7 @@ const ChatBot = () => {
   const handleSubmit = async () => {
     try {
       // Replace 'API_ENDPOINT' with the actual API endpoint
-      const apiEndpoint = 'http://127.0.0.1:5000/chat';
+      const apiEndpoint = 'https://recapify-ai.azurewebsites.net/chat';
       // const response = await fetch(apiEndpoint, {
       //   method: 'POST',
       //   headers: {
@@ -51,8 +39,8 @@ const ChatBot = () => {
         },
         body: JSON.stringify({ user_q: inputValue }),
       })
-      console.log(response.data)
-      console.log(response.data)
+      console.log("Response: ",response.data)
+      // console.log(response.data)
       const data = await response.data;
       const newChatEntry = { type: 'user', message: inputValue };
       setChatHistory([...chatHistory, newChatEntry]);
@@ -79,7 +67,19 @@ const ChatBot = () => {
               entry.type === 'user' ? 'text-blue-500' : 'text-green-500'
             } mb-2`}
           >
-            {entry.message}
+            {entry.type === 'user' ? (
+              <div className="flex items-end">
+                <span className="bg-blue-500 text-white p-2 rounded-lg max-w-2/3">
+                  {entry.message}
+                </span>
+              </div>
+            ) : (
+              <div className="flex items-start">
+                <span className="bg-green-500 text-white p-2 rounded-lg max-w-2/3">
+                  {entry.message}
+                </span>
+              </div>
+            )}
           </div>
         ))}
         <div ref={inputRef} />

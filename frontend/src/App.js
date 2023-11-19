@@ -1,17 +1,14 @@
 import React from 'react';
-import ThirdPage from './components/ThirdPage';
 import SecondPage from './components/SecondPage';
 import FirstPage from './components/FirstPage';
-
+import ThirdPage from './components/ThirdPage';
 function App() {
 
   return (
     <div>
       <FirstPage />
       <SecondPage/>
-      <ThirdPage />
-
-      
+      <ThirdPage />      
     </div>
   );
 }

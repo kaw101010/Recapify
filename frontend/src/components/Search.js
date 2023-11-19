@@ -1,5 +1,5 @@
 // src/components/SearchBar.js
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { Link } from 'react-scroll'; // Import Link from react-scroll
 import axios from 'axios';
 
@@ -7,10 +7,10 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = async () => {
-    localStorage.clear();
+    sessionStorage.clear();
     try {
       
-      const resp = await axios.post("http://127.0.0.1:5000/summary", {
+      const resp = await axios.post("https://recapify-ai.azurewebsites.net/summary", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -23,11 +23,10 @@ const SearchBar = () => {
       });
 
       console.log(resp);
-
-      localStorage.setItem('summary', resp.data.detailed);
+      sessionStorage.setItem('summary', resp.data.detailed);
 
       // Use the Link component to scroll to the 'result' element after API call
-      document.getElementById('scroll-to-result').click();
+
     } catch (err) {
       console.log(err);
     }
@@ -64,11 +63,10 @@ const SearchBar = () => {
 
       {/* Hidden Link component for smooth scrolling */}
       <Link
-        to="result"
+        to={sessionStorage.getItem('summary')?"result":"WrongInput"}
         spy={true}
         smooth={true}
         duration={500}
-        id="scroll-to-result"
         style={{ display: 'none' }}
       />
     </div>

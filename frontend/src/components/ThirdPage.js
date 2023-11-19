@@ -9,7 +9,8 @@ function ThirdPage() {
     const [disp, setDisplay] = useState("");
 
     const updateSummaryData = () => {
-        const storedSummary = localStorage.getItem('summary');
+        const storedSummary = sessionStorage.getItem('summary');
+        console.log(storedSummary)
         if (storedSummary){
           setDisplay(storedSummary);
         }
