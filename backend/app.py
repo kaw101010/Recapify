@@ -21,7 +21,9 @@ def index():
 @app.route("/summary", methods=["GET", "POST"])
 def summary():
     if request.method == "POST":
-        youtube_link = request.json.get("youtube_link")
+        youtube_link = request.get_json()
+        youtube_link = json.loads(youtube_link['body'])
+        youtube_link = youtube_link['youtube_link']
         # print(youtube_link)
         transcript = get_full_transcript(youtube_link)
         global_storage["transcript"] = transcript

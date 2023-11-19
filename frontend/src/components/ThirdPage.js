@@ -13,12 +13,13 @@ function ThirdPage() {
         if (storedSummary){
           setDisplay(storedSummary);
         }
+        console.log(disp)
       };
 
     useEffect(() => {
     // Initial check for summary in local storage
     updateSummaryData();
-    }, []); // Only runs once on component mount
+    }); // Only runs once on component mount
     
 function detailsClicked() {
     setDetailsIsClicked(true);
@@ -39,7 +40,7 @@ function briefClicked() {
 }
     //make 3 functions saying details clicked 
     return (
-        <div className=' flex h-screen w-screen bg-indigo-900 bg-auto border'>
+        <div name="result" className=' flex h-screen w-screen bg-indigo-900 bg-auto border'>
             <div className='flex flex-col w-[70%] h-screen bg-cyan-300 gap-10 py-5 border border-t-2 border-t-blue-950 '>
                 <div className='flex justify-around'>
                     <button className={detailsIsClicked?' bg-indigo-900 text-lg text-cyan-400 px-10 rounded-xl font-semibold py-3' : ' bg-blue-600 text-lg text-white px-10 rounded-xl font-semibold py-3'} onClick={e => {detailsClicked()}}>Details</button>

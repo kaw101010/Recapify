@@ -1,23 +1,33 @@
 // src/components/SearchBar.js
 import React, { useState } from 'react';
-// import { FaSearch } from 'react-icons/fa';
+import { Link } from 'react-scroll'; // Import Link from react-scroll
 import axios from 'axios';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = async () => {
-    // Redirect to the specified link when the button is clicked
+    localStorage.clear();
     try {
-      localStorage.clear();
+      
       const resp = await axios.post("http://127.0.0.1:5000/summary", {
-        youtube_link: searchTerm
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        },
+        body: JSON.stringify({
+          youtube_link: searchTerm
+        })
       });
+
       console.log(resp);
-      // Store other data also
-      localStorage.setItem('summary', resp.data.detailed); // Just storing detailed
-      // resp.data = {brief: "", detailed: "text", pointers: ""}
-      // inspect console for all data
+
+      localStorage.setItem('summary', resp.data.detailed);
+
+      // Use the Link component to scroll to the 'result' element after API call
+      document.getElementById('scroll-to-result').click();
     } catch (err) {
       console.log(err);
     }
@@ -27,10 +37,8 @@ const SearchBar = () => {
     setSearchTerm(e.target.value);
   };
 
-
-
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the default form submission behavior
+    e.preventDefault();
     handleSearch();
   };
 
@@ -40,17 +48,29 @@ const SearchBar = () => {
         <input
           type="text"
           placeholder="Search..."
-          className=" w-full p-2 border-2 border-blue-500 rounded-lg focus:outline-none"
+          className="w-full p-2 border-2 border-blue-500 rounded-lg focus:outline-none"
           value={searchTerm}
           onChange={handleInputChange}
         />
+        
         <button
           type="submit"
           className='bg-blue-900 hover:bg-cyan-700 text-cyan-400 font-bold py-2 px-4 rounded text-xl'
         >
           Generate
         </button>
+       
       </form>
+
+      {/* Hidden Link component for smooth scrolling */}
+      <Link
+        to="result"
+        spy={true}
+        smooth={true}
+        duration={500}
+        id="scroll-to-result"
+        style={{ display: 'none' }}
+      />
     </div>
   );
 };

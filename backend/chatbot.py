@@ -6,17 +6,16 @@ def chat_response(question, transcript,max_tokens=750):
         openai.api_key = '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'
 
         # Generate a summary using OpenAI GPT-3
-        response = openai.Answer.create(
-        search_model="text-davinci-003", 
-        model="text-davinci-003",
-        question=question,
-        documents=[transcript],
-        max_tokens=max_tokens  # Adjust as per your desired answer length
-        )  
-
+        response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=question,
+        max_tokens=400,  # Adjust token limit as needed
+        temperature=0.5,  # Adjust the creativity of the response
+        #stop=["\n\n"]  # Stop the generation at double newlines for better formatting
+        )
         # there's a limit of about videos of length 4 mins
-
-        chat_answer = response['answers'][0]['text'].strip()
+        print("Response",response)
+        chat_answer = response['choices'][0]['text']
         print("Chat Answer",chat_answer)
         return chat_answer
 

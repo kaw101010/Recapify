@@ -13,33 +13,20 @@ function StartPage() {
     });
   };
 
-  const commonStyle = {
-    fontFamily: 'YourCustomFont, sans-serif',
-    fontWeight: '900',
-  };
-
-  const headingStyle = {
-    ...commonStyle,
-    marginLeft: '300px', // Adjust the value as needed
-  };
-
-  const buttonStyle = {
-    ...commonStyle,
-    marginLeft: '300px', // Adjust the value as needed
-  };
+  
 
   return (
     <div className='h-screen bg-cyan-300 bg-auto'>
       <div className='flex items-center justify-center h-screen'>
         {/* Add the image */}
         <div className='flex flex-col gap-6 mr-20'>
-        <h2 className='bg-gradient-to-r to-blue-700 from-purple-900 inline-block text-transparent bg-clip-text text-8xl font-extrabold text-outline' style={headingStyle}>
-          <span className="text-transparent">{''}LEARN</span>
+        <h2 className='bg-gradient-to-r to-blue-700 from-purple-900 inline-block text-transparent bg-clip-text text-8xl font-extrabold text-outline'>
+          <span className="text-transparent">LEARN</span>
         </h2>
-        <h2 className='bg-gradient-to-r to-blue-700 from-purple-900 inline-block text-transparent bg-clip-text text-8xl font-extrabold text-outline' style={headingStyle}>
-          <span className="text-transparent">{''}THE SMART</span>
+        <h2 className='bg-gradient-to-r to-blue-700 from-purple-900 inline-block text-transparent bg-clip-text text-8xl font-extrabold text-outline'>
+          <span className="text-transparent">THE SMART</span>
         </h2>
-        <h2 className='bg-gradient-to-r to-blue-700 from-purple-900 inline-block text-transparent text-right bg-clip-text text-8xl font-extrabold text-outline' style={headingStyle}>
+        <h2 className='bg-gradient-to-r to-blue-700 from-purple-900 inline-block text-transparent text-right bg-clip-text text-8xl font-extrabold text-outline'>
           <span className="text-transparent">WAY</span>
         </h2>
         <Link
@@ -51,7 +38,6 @@ function StartPage() {
         >
           <button
             className='bg-gradient-to-r from-purple-900 to-purple-400 hover:from-purple-700 hover:to-white text-white font-bold py-3 px-14 mt-7 rounded'
-            style={buttonStyle}
             onClick={handleButtonClick}
           >
             <span className="font-extrabold text-2xl">Get Started</span>

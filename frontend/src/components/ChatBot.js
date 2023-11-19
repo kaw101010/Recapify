@@ -46,14 +46,13 @@ const ChatBot = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         },
         body: JSON.stringify({ user_q: inputValue }),
       })
-
-      if (!response.ok) {
-        throw new Error('Error fetching response from the server');
-      }
-
+      console.log(response.data)
+      console.log(response.data)
       const data = await response.data;
       const newChatEntry = { type: 'user', message: inputValue };
       setChatHistory([...chatHistory, newChatEntry]);
